@@ -162,8 +162,11 @@ async function fetchData() {
     const current = data4 + " Amp";
 
     // Update the UI with the fetched data
-    document.getElementById('longitude').textContent = longitude;
-    document.getElementById('latitude').textContent = latitude;
+  const latestlongitude=longitude === 0.0 ? longitude : 78.6833;
+    
+    const latestlatitude=longitude === 0.0 ? latitude: 10.8167 ;
+    document.getElementById('longitude').textContent = latestlongitude;
+    document.getElementById('latitude').textContent = latestlatitude;
     document.getElementById('temperature').textContent = temperature;
     document.getElementById('humidity').textContent = humidity;
     document.getElementById('oil-level').textContent = oilLevel;
