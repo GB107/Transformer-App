@@ -151,8 +151,12 @@ async function fetchData() {
     const longitude = data.channel.longitude;
     const latitude = data.channel.latitude;
 
+    const latestlongitude=longitude === 0.0 ? longitude :  78.8132;
+    
+    const latestlatitude=longitude === 0.0 ? latitude: 10.7589 ;
+
     // Set the source of the map iframe with the Google Maps embed link
-    const mapUrl = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d0.1!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1527183018365`;
+    const mapUrl = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d0.1!2d${latestlongitude}!3d${latestlatitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1527183018365`;
     mapContainer.src = mapUrl;
 
     // Get the temperature, humidity, oil level, and current from the API data
@@ -162,9 +166,7 @@ async function fetchData() {
     const current = data4 + " Amp";
 
     // Update the UI with the fetched data
-  const latestlongitude=longitude === 0.0 ? longitude : 78.6833;
     
-    const latestlatitude=longitude === 0.0 ? latitude: 10.8167 ;
     document.getElementById('longitude').textContent = latestlongitude;
     document.getElementById('latitude').textContent = latestlatitude;
     document.getElementById('temperature').textContent = temperature;
